@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>NSCT 2026 Analytics — Pakistan IT Graduate Competency Report</title>
+  <meta name="description"
+    content="Comprehensive data analysis of HEC's National Skill Competency Test 2026. Explore university rankings, provincial disparities, gender analysis, and subject proficiency across 33,038 IT graduates." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700;800&display=swap"
+    rel="stylesheet" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+</head>
+
+<body>
+
+  <!-- SIDEBAR NAVIGATION -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar__header">
+      <div class="sidebar__logo">
+
+        <span class="sidebar__logo-primary">NSCT</span>
+        <span class="sidebar__logo-secondary">Analytics 2026</span>
+      </div>
+
+      <button class="sidebar__close" id="sidebar-close" aria-label="Close navigation">&times;</button>
+    </div>
+
+    <nav class="sidebar__nav" aria-label="Main navigation">
+      <a href="#overview" class="sidebar__link sidebar__link--active">
+        <svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        <span>Overview</span>
+      </a>
+      <a href="#gender" class="sidebar__link">
+        <svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span>Gender Analysis</span>
+      </a>
+      <a href="#geography" class="sidebar__link">
+        <svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 12v.01"/><path d="M9 15v.01"/></svg>
+        <span>Urban vs Rural</span>
+      </a>
+      <a href="#provinces" class="sidebar__link">
+        <svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Provinces</span>
+      </a>
+      <a href="#universities" class="sidebar__link">
+        <svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/></svg>
+        <span>Universities</span>
+      </a>
+      <a href="#subjects" class="sidebar__link">
+        <svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+        <span>Subjects</span>
+      </a>
+      <a href="#students" class="sidebar__link">
+        <svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5C7 4 6 9 6 9Zm0 0a6 6 0 0 0 12 0 6 6 0 0 0-12 0Zm12 0h1.5a2.5 2.5 0 0 0 0-5C17 4 18 9 18 9Z"/><path d="M12 15v2"/><path d="M8 21h8"/><path d="M12 17h.01"/></svg>
+        <span>Top Students</span>
+      </a>
+      <a href="#historical" class="sidebar__link">
+        <svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        <span>2024 vs 2026</span>
+      </a>
+    </nav>
+
+
+    <div class="sidebar__footer">
+      <p class="sidebar__attribution">
+        Data: <a href="https://www.hec.gov.pk/english/HECAnnouncements/Pages/NSCT-Result.aspx" target="_blank"
+          rel="noopener noreferrer">HEC Pakistan</a>
+      </p>
+      <p class="sidebar__attribution">
+        <a href="https://www.hec.gov.pk/english/scholarshipsgrants/Documents/Complete%20NSCT%20Report%20and%20Analytics.pdf"
+          target="_blank" rel="noopener noreferrer">Full Report PDF ↗</a>
+      </p>
+    </div>
+  </aside>
+
+  <button class="hamburger" id="hamburger" aria-label="Open navigation">☰</button>
+
+  <!-- MAIN CONTENT AREA -->
+  <main class="main">
+
+    <!-- ============================================ -->
+    <!-- SECTION 1: NATIONAL OVERVIEW (HERO)          -->
+    <!-- ============================================ -->
+    <section class="section section--hero" id="overview">
+      <div class="section__header">
+        <h1 class="section__title section__title--hero">
+          National Skill Competency Test
+          <span class="section__title-accent">2026 Analytics</span>
+        </h1>
+        <p class="section__subtitle">
+          A comprehensive data analysis of <strong>33,038</strong> IT graduates across
+          <strong>154</strong> universities, <strong>165</strong> test centers, and
+          <strong>112</strong> cities in Pakistan.
+        </p>
+      </div>
+
+      <!-- KPI CARDS ROW -->
+      <div class="kpi-grid" id="kpi-grid">
+        <!-- KPI cards will be generated by JavaScript -->
+      </div>
+
+      <!-- CHART: Registration Funnel -->
+      <div class="chart-card" id="funnel-card">
+        <h3 class="chart-card__title">The National Assessment Funnel</h3>
+        <p class="chart-card__subtitle">Complete conversion lifecycle from initial data upload to final test
+          participation</p>
+        <div class="chart-card__body" id="funnel-chart">
+          <!-- D3 will render the SVG chart here -->
+        </div>
+      </div>
+
+      <!-- CHART: Grade Distribution -->
+      <div class="chart-card" id="grade-card">
+        <h3 class="chart-card__title">National Talent Distribution (HEC Scale)</h3>
+        <p class="chart-card__subtitle">Distribution of 33,038 candidates mapped to the standard HEC Grading Scheme</p>
+        <div class="chart-card__body" id="grade-chart">
+          <!-- D3 will render the SVG chart here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 2: GENDER ANALYSIS                   -->
+    <!-- ============================================ -->
+    <section class="section" id="gender">
+      <div class="section__header">
+        <h2 class="section__title">Gender Analysis</h2>
+        <p class="section__subtitle">Examining the performance gap — and the access gap — between male and female IT
+          graduates nationwide</p>
+      </div>
+
+      <div class="chart-card" id="gender-comparison-card">
+        <h3 class="chart-card__title">Pass Rate by Gender</h3>
+        <p class="chart-card__subtitle">National, Rural, and Urban pass rates for male vs female candidates</p>
+        <div class="chart-card__body" id="gender-comparison-chart"></div>
+        <div class="insight-callout">
+          <p>The pass rate difference between genders is <strong>just 2.5%</strong>. The technical capability between
+            men and women is fundamentally equal — the challenge lies in access, outreach, and increasing female
+            enrollment.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 3: URBAN VS RURAL                    -->
+    <!-- ============================================ -->
+    <section class="section" id="geography">
+      <div class="section__header">
+        <h2 class="section__title">The Urban-Rural Divide</h2>
+        <p class="section__subtitle">Living in an urban center provides a nearly 15-point baseline advantage in clearing
+          the NSCT benchmark</p>
+      </div>
+
+      <div class="chart-card" id="geography-card">
+        <h3 class="chart-card__title">Urban vs Rural Performance</h3>
+        <p class="chart-card__subtitle">Pass/fail rates broken down by geography and gender</p>
+        <div class="chart-card__body" id="geography-chart"></div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 4: PROVINCIAL BREAKDOWN              -->
+    <!-- ============================================ -->
+    <section class="section" id="provinces">
+      <div class="section__header">
+        <h2 class="section__title">Provincial Breakdown</h2>
+        <p class="section__subtitle">The "Center vs. Periphery" disparity in Pakistan's educational infrastructure</p>
+      </div>
+
+      <div class="chart-card" id="province-card">
+        <h3 class="chart-card__title">Provincial Success Rates</h3>
+        <p class="chart-card__subtitle">Pass vs fail percentages by candidate's domicile province</p>
+        <div class="chart-card__body" id="province-chart"></div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 5: UNIVERSITY RANKINGS               -->
+    <!-- ============================================ -->
+    <section class="section" id="universities">
+      <div class="section__header">
+        <h2 class="section__title">University Rankings & Explorer</h2>
+        <p class="section__subtitle">How does your university compare? Explore pass rates, scores, and rankings across
+          154 institutions</p>
+      </div>
+
+      <!-- Top 20 Bar Chart -->
+      <div class="chart-card" id="uni-ranking-card">
+        <div class="chart-card__toolbar">
+          <h3 class="chart-card__title">Top 20 Universities by Pass Rate</h3>
+          <div class="toggle-group" id="sector-toggle">
+            <button class="toggle-btn toggle-btn--active" data-sector="all">All</button>
+            <button class="toggle-btn" data-sector="public">Public</button>
+            <button class="toggle-btn" data-sector="private">Private</button>
+          </div>
+        </div>
+        <div class="chart-card__body" id="uni-ranking-chart"></div>
+      </div>
+
+      <!-- Interactive University Table -->
+      <div class="chart-card" id="uni-table-card">
+        <div class="chart-card__toolbar">
+          <h3 class="chart-card__title">University Explorer</h3>
+          <div class="table-controls">
+            <input type="text" class="search-input" id="uni-search" placeholder="Search university..." />
+          </div>
+        </div>
+        <div class="chart-card__body chart-card__body--table" id="uni-table-container">
+          <!-- JS will generate the table -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 6: SUBJECT PROFICIENCY               -->
+    <!-- ============================================ -->
+    <section class="section" id="subjects">
+      <div class="section__header">
+        <h2 class="section__title">Subject Proficiency Analysis</h2>
+        <p class="section__subtitle">Which IT skills are Pakistani graduates lacking — and where do they excel?</p>
+      </div>
+
+      <div class="chart-card" id="subject-card">
+        <h3 class="chart-card__title">Subject-wise Proficiency Breakdown</h3>
+        <p class="chart-card__subtitle">Average candidate score as a percentage of maximum possible marks in each domain
+        </p>
+        <div class="chart-card__body" id="subject-chart"></div>
+      </div>
+
+      <div class="chart-card" id="cognitive-card">
+        <h3 class="chart-card__title">Cognitive Tier Performance</h3>
+        <p class="chart-card__subtitle">National average across three escalating cognitive complexity tiers</p>
+        <div class="chart-card__body" id="cognitive-chart"></div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 7: TOP STUDENTS                      -->
+    <!-- ============================================ -->
+    <section class="section" id="students">
+      <div class="section__header">
+        <h2 class="section__title">Top Students Leaderboard</h2>
+        <p class="section__subtitle">The 150 highest-scoring IT graduates in Pakistan — the top 0.45% of all candidates
+        </p>
+      </div>
+
+      <div class="chart-card" id="students-table-card">
+        <div class="chart-card__toolbar">
+          <h3 class="chart-card__title">Top 150 Performers</h3>
+          <div class="table-controls">
+            <input type="text" class="search-input" id="student-search" placeholder="Search by name or university..." />
+          </div>
+        </div>
+        <div class="chart-card__body chart-card__body--table" id="students-table-container">
+          <!-- JS will generate the table -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 8: HISTORICAL COMPARISON             -->
+    <!-- ============================================ -->
+    <section class="section" id="historical">
+      <div class="section__header">
+        <h2 class="section__title">Historical: 2024 vs 2026</h2>
+        <p class="section__subtitle">Despite 250% more candidates, the national competency baseline hasn't moved</p>
+      </div>
+
+      <div class="chart-card" id="historical-card">
+        <h3 class="chart-card__title">Score Distribution Comparison</h3>
+        <p class="chart-card__subtitle">2024 (9,253 candidates) overlaid with 2026 (33,038 candidates), normalized to
+          percentages</p>
+        <div class="chart-card__body" id="historical-chart"></div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p>Data sourced from <a href="https://www.hec.gov.pk" target="_blank" rel="noopener noreferrer">Higher Education
+          Commission (HEC) Pakistan</a> — NSCT 2026</p>
+      <p>Built with D3.js for data visualization</p>
+    </footer>
+
+  </main>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

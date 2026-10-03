@@ -1,0 +1,282 @@
+{
+  "metadata": {
+    "title": "HEC National Skill Competency Test (NSCT) 2026 - Complete Data Repository",
+    "source": "Higher Education Commission (HEC) Pakistan",
+    "year": 2026,
+    "collaboration": "Virtual University of Pakistan",
+    "target_audience": "IT & Computing graduates (7th and 8th semester students)",
+    "test_centers": 165,
+    "cities_covered": 112,
+    "total_candidates_uploaded": 57241,
+    "total_sign_ups": 46155,
+    "total_registered": 40784,
+    "total_appeared": 33038,
+    "national_average_score": 46.28,
+    "pass_threshold": 50,
+    "previous_year_candidates_2024": 9253,
+    "growth_percentage": 250,
+    "public_sector_candidates": 23401,
+    "private_sector_candidates": 9637,
+    "students_above_60_pct_2026": 13.6,
+    "students_above_60_pct_2024": 13.9,
+    "d_and_f_combined_pct": 82.7,
+    "total_passed": 12744,
+    "total_failed": 20294,
+    "overall_pass_rate": 38.6,
+    "subjects_tested": [
+      "Operating System",
+      "Software Engineering",
+      "Data Structures & Algorithms",
+      "Computer Networks & Cloud",
+      "Programming",
+      "Database",
+      "Problem Solving / Analytics",
+      "Cyber Security",
+      "AI / Machine Learning",
+      "Web Development Basics"
+    ],
+    "hec_links": {
+      "main_results": "https://www.hec.gov.pk/english/HECAnnouncements/Pages/NSCT-Result.aspx",
+      "university_results": "https://www.hec.gov.pk/english/scholarshipsgrants/Pages/Sites/NSCT-University.aspx",
+      "bottom_heis": "https://www.hec.gov.pk/english/scholarshipsgrants/Pages/Sites/NSCT-Bottom-HEIs.aspx",
+      "top_students": "https://www.hec.gov.pk/english/scholarshipsgrants/Pages/Sites/NSCT-Students.aspx",
+      "individual_result": "https://www.hec.gov.pk/english/scholarshipsgrants/Pages/Sites/Result-NSCT.aspx",
+      "top_achievers": "https://www.hec.gov.pk/english/HECAnnouncements/Pages/NSCT-Achievers.aspx",
+      "full_report_pdf": "https://www.hec.gov.pk/english/scholarshipsgrants/Documents/Complete%20NSCT%20Report%20and%20Analytics.pdf"
+    }
+  },
+
+  "registration_funnel": {
+    "stages": [
+      { "stage": "Total Uploaded", "count": 57241, "description": "Initial candidate records uploaded" },
+      { "stage": "Total Sign Ups", "count": 46155, "description": "Initiated the sign-up process" },
+      { "stage": "Not Registered", "count": 5371, "description": "Failed to complete registration" },
+      { "stage": "Successfully Registered", "count": 40784, "description": "Verified profiles on portal" },
+      { "stage": "Actually Participated", "count": 33038, "description": "Actual test takers" }
+    ]
+  },
+
+  "gender_demographics": {
+    "national": {
+      "female": { "total": 11990, "pass_rate": 37.0, "fail_rate": 63.0 },
+      "male": { "total": 21047, "pass_rate": 39.5, "fail_rate": 60.5 },
+      "pass_rate_gap": 2.5
+    },
+    "rural": {
+      "female": { "total": 2964, "pass_rate": 26.1, "fail_rate": 73.9 },
+      "male": { "total": 6630, "pass_rate": 28.7, "fail_rate": 71.3 }
+    },
+    "urban": {
+      "female": { "total": 9026, "pass_rate": 40.5, "fail_rate": 59.5 },
+      "male": { "total": 14417, "pass_rate": 44.5, "fail_rate": 55.5 }
+    }
+  },
+
+  "provincial_demographics": [
+    { "province": "Islamabad (ICT)", "pass_rate": 52.9, "fail_rate": 47.1, "candidates": 726, "category": "top_region" },
+    { "province": "Sindh", "pass_rate": 42.0, "fail_rate": 58.0, "candidates": 5200 },
+    { "province": "Punjab", "pass_rate": 39.4, "fail_rate": 60.6, "candidates": 20217, "category": "volume_engine" },
+    { "province": "Overseas", "pass_rate": 32.6, "fail_rate": 67.4, "candidates": 150 },
+    { "province": "Gilgit-Baltistan", "pass_rate": 32.6, "fail_rate": 67.4, "candidates": 300 },
+    { "province": "Azad Jammu & Kashmir", "pass_rate": 31.0, "fail_rate": 68.9, "candidates": 800 },
+    { "province": "Khyber Pakhtunkhwa", "pass_rate": 30.2, "fail_rate": 69.8, "candidates": 5183 },
+    { "province": "Balochistan", "pass_rate": 29.0, "fail_rate": 71.0, "candidates": 462, "category": "most_vulnerable" }
+  ],
+
+  "hec_grade_distribution": [
+    { "grade": "F", "label": "Fail", "range": "< 50", "percentage": 61.4, "count": 20294, "description": "Failed to secure minimum passing baseline of 50 marks" },
+    { "grade": "D", "label": "Pass", "range": "50-57", "percentage": 21.3, "count": 7052, "description": "Cleared bare minimum, requires extensive foundational upskilling" },
+    { "grade": "C", "label": "Acceptable", "range": "58-67", "percentage": 13.2, "count": 4375, "description": "Demonstrated acceptable competency, suitable for entry-level integration" },
+    { "grade": "B", "label": "Good", "range": "68-79", "percentage": 3.6, "count": 1192, "description": "Highly capable, strong analytical and applied knowledge" },
+    { "grade": "A", "label": "Excellent", "range": "80+", "percentage": 0.4, "count": 125, "description": "The absolute elite, near-perfect scores across all cognitive tiers" }
+  ],
+
+  "score_distribution_2026": [
+    { "bracket": "0-9", "count": 19 },
+    { "bracket": "10-19", "count": 80 },
+    { "bracket": "20-29", "count": 2193 },
+    { "bracket": "30-39", "count": 7676 },
+    { "bracket": "40-49", "count": 10323 },
+    { "bracket": "50-59", "count": 8277 },
+    { "bracket": "60-69", "count": 3558 },
+    { "bracket": "70-79", "count": 784 },
+    { "bracket": "80-89", "count": 108 },
+    { "bracket": "90-100", "count": 17 }
+  ],
+
+  "score_distribution_2024": {
+    "total_candidates": 9253,
+    "national_average": 46.96,
+    "standard_deviation": 11.05,
+    "brackets": [
+      { "bracket": "0-9", "count": 1 },
+      { "bracket": "10-19", "count": 14 },
+      { "bracket": "20-29", "count": 436 },
+      { "bracket": "30-39", "count": 2036 },
+      { "bracket": "40-49", "count": 3029 },
+      { "bracket": "50-59", "count": 2444 },
+      { "bracket": "60-69", "count": 1061 },
+      { "bracket": "70-79", "count": 217 },
+      { "bracket": "80-89", "count": 9 },
+      { "bracket": "90-100", "count": 0 }
+    ]
+  },
+
+  "subject_proficiency": [
+    { "subject": "Operating System", "avg_proficiency": 33.8, "category": "deep_tech", "status": "critical_weakness" },
+    { "subject": "Computer Networks & Cloud", "avg_proficiency": 42.0, "category": "deep_tech" },
+    { "subject": "Data Structures & Algorithms", "avg_proficiency": 43.0, "category": "deep_tech" },
+    { "subject": "Database", "avg_proficiency": 45.0, "category": "applied" },
+    { "subject": "Cyber Security", "avg_proficiency": 47.5, "category": "applied" },
+    { "subject": "Programming", "avg_proficiency": 48.0, "category": "applied" },
+    { "subject": "Problem Solving / Analytics", "avg_proficiency": 49.5, "category": "applied" },
+    { "subject": "Software Engineering", "avg_proficiency": 50.5, "category": "applied" },
+    { "subject": "AI / Machine Learning", "avg_proficiency": 52.0, "category": "applied" },
+    { "subject": "Web Development Basics", "avg_proficiency": 54.1, "category": "applied", "status": "highest_strength" }
+  ],
+
+  "cognitive_tiers": [
+    { "tier": 1, "name": "Understanding", "description": "Basic recall, syntax, foundational definitions", "accuracy": 49.5 },
+    { "tier": 2, "name": "Application", "description": "Apply known rules to specific, constrained problems", "accuracy": 45.1, "drop_from_tier1": 4.4 },
+    { "tier": 3, "name": "Analysis", "description": "Complex architecture, debugging, multi-step logic", "accuracy": 44.8, "drop_from_tier1": 4.7 }
+  ],
+
+  "sector_comparison": {
+    "public": { "candidates": 23401, "percentage_of_total": 70.8, "top_pass_rate": 90.4, "top_institution": "Information Technology University of the Punjab" },
+    "private": { "candidates": 9637, "percentage_of_total": 29.2, "top_pass_rate": 96.5, "top_institution": "Habib University" }
+  },
+
+  "top_30_students_sector_insights": {
+    "overall": { "top_score": 97, "top_scorer": "Zain-ul-Abden", "top_university": "University of Sindh", "vu_students_in_top30": 7 },
+    "public_sector": { "leading_university": "Virtual University of Pakistan", "students_in_top30": 8, "key_insight": "Peak brilliance is highly decentralized. Regional universities like PAF-IAST, University of Malakand, and University of Swat incubate top-tier talent." },
+    "private_sector": { "leading_university": "FAST-NUCES", "students_in_top30": 19, "key_insight": "FAST network exhibits massive structural dominance. Abasyn University produced the two highest-scoring private sector individuals (95 and 93)." }
+  },
+
+  "proficiency_gap_institutions": [
+    { "institution": "KUST", "understanding_accuracy": 35.0, "analysis_accuracy": 33.0 },
+    { "institution": "LCWU", "understanding_accuracy": 47.0, "analysis_accuracy": 63.0 },
+    { "institution": "IM Sciences", "understanding_accuracy": 49.0, "analysis_accuracy": 55.0 },
+    { "institution": "IoBM", "understanding_accuracy": 47.0, "analysis_accuracy": 51.0 },
+    { "institution": "International Institute of Science - Arts and Technology", "understanding_accuracy": 46.0, "analysis_accuracy": 50.0 },
+    { "institution": "BBSUL", "understanding_accuracy": 40.0, "analysis_accuracy": 44.0 },
+    { "institution": "BZU", "understanding_accuracy": 41.0, "analysis_accuracy": 42.0 },
+    { "institution": "University of the Poonch", "understanding_accuracy": 39.0, "analysis_accuracy": 42.0 },
+    { "institution": "BGNU", "understanding_accuracy": 39.0, "analysis_accuracy": 54.0 },
+    { "institution": "University of Karachi", "understanding_accuracy": 45.0, "analysis_accuracy": 65.0 }
+  ],
+
+  "top_20_universities_2026": [
+    { "rank": 1, "name": "Habib University", "pass_percentage": 96.5, "sector": "private" },
+    { "rank": 2, "name": "Information Technology University of the Punjab", "pass_percentage": 90.4, "sector": "public" },
+    { "rank": 3, "name": "National University of Computer and Emerging Sciences (FAST)", "pass_percentage": 89.5, "sector": "private" },
+    { "rank": 4, "name": "National University of Science & Technology (NUST)", "pass_percentage": 89.2, "sector": "public" },
+    { "rank": 5, "name": "Ghulam Ishaq Khan Institute of Engineering Sciences and Technology", "pass_percentage": 88.1, "sector": "private" },
+    { "rank": 6, "name": "NED University of Engineering & Technology", "pass_percentage": 84.2, "sector": "public" },
+    { "rank": 7, "name": "University of Engineering and Technology, Lahore", "pass_percentage": 82.1, "sector": "public" },
+    { "rank": 8, "name": "Government College University, Lahore", "pass_percentage": 80.0, "sector": "public" },
+    { "rank": 9, "name": "Quaid-i-Azam University", "pass_percentage": 70.0, "sector": "public" },
+    { "rank": 10, "name": "Air University", "pass_percentage": 69.8, "sector": "public" },
+    { "rank": 11, "name": "Sukkur IBA University", "pass_percentage": 68.1, "sector": "public" },
+    { "rank": 12, "name": "University of Engineering & Technology, Taxila", "pass_percentage": 68.1, "sector": "public" },
+    { "rank": 13, "name": "City University of Science and Information Technology", "pass_percentage": 64.7, "sector": "private" },
+    { "rank": 14, "name": "Bahria University", "pass_percentage": 63.7, "sector": "public" },
+    { "rank": 15, "name": "COMSATS University Islamabad", "pass_percentage": 63.3, "sector": "public" },
+    { "rank": 16, "name": "University of the Punjab", "pass_percentage": 62.7, "sector": "public" },
+    { "rank": 17, "name": "Superior University Lahore", "pass_percentage": 59.8, "sector": "private" },
+    { "rank": 18, "name": "Pak-Austria Fachhochschule Institute of Applied Sciences and Technology", "pass_percentage": 58.4, "sector": "public" },
+    { "rank": 19, "name": "Institute of Space Technology", "pass_percentage": 57.8, "sector": "public" },
+    { "rank": 20, "name": "National University of Technology", "pass_percentage": 57.1, "sector": "public" }
+  ],
+
+  "top_20_universities_2024": [
+    { "rank": 1, "name": "FAST", "pass_percentage": 94.0 },
+    { "rank": 2, "name": "NUST", "pass_percentage": 90.0 },
+    { "rank": 3, "name": "NED", "pass_percentage": 82.0 },
+    { "rank": 4, "name": "PU", "pass_percentage": 75.0 },
+    { "rank": 5, "name": "AU", "pass_percentage": 74.0 },
+    { "rank": 6, "name": "UCP", "pass_percentage": 71.0 },
+    { "rank": 7, "name": "University of Engineering & Technology", "pass_percentage": 70.0 },
+    { "rank": 8, "name": "BU", "pass_percentage": 67.0 },
+    { "rank": 9, "name": "Institute of Management Science (IMS)", "pass_percentage": 62.0 },
+    { "rank": 10, "name": "NUTECH", "pass_percentage": 57.0 },
+    { "rank": 11, "name": "COMSATS", "pass_percentage": 56.0 },
+    { "rank": 12, "name": "UoG", "pass_percentage": 55.0 },
+    { "rank": 13, "name": "University of Management & Technology", "pass_percentage": 52.0 },
+    { "rank": 14, "name": "IST", "pass_percentage": 52.0 },
+    { "rank": 15, "name": "NUML", "pass_percentage": 52.0 },
+    { "rank": 16, "name": "FJWU", "pass_percentage": 50.0 },
+    { "rank": 17, "name": "NTU", "pass_percentage": 46.0 },
+    { "rank": 18, "name": "UIT", "pass_percentage": 46.0 },
+    { "rank": 19, "name": "SZABIST", "pass_percentage": 42.0 },
+    { "rank": 20, "name": "International Islamic University", "pass_percentage": 40.0 }
+  ],
+
+  "top_20_public_sector_2026": [
+    { "rank": 1, "name": "Information Technology University of the Punjab", "pass_percentage": 90.4 },
+    { "rank": 2, "name": "National University of Science & Technology", "pass_percentage": 89.2 },
+    { "rank": 3, "name": "NED University of Engineering & Technology", "pass_percentage": 84.2 },
+    { "rank": 4, "name": "University of Engineering and Technology, Lahore", "pass_percentage": 82.1 },
+    { "rank": 5, "name": "Government College University, Lahore", "pass_percentage": 80.0 },
+    { "rank": 6, "name": "Quaid-i-Azam University", "pass_percentage": 70.0 },
+    { "rank": 7, "name": "Air University", "pass_percentage": 69.8 },
+    { "rank": 8, "name": "Sukkur IBA University", "pass_percentage": 68.1 },
+    { "rank": 9, "name": "University of Engineering & Technology, Taxila", "pass_percentage": 68.1 },
+    { "rank": 10, "name": "Bahria University", "pass_percentage": 63.7 },
+    { "rank": 11, "name": "COMSATS University Islamabad", "pass_percentage": 63.3 },
+    { "rank": 12, "name": "University of the Punjab", "pass_percentage": 62.7 },
+    { "rank": 13, "name": "Pak-Austria Fachhochschule Institute of Applied Science & Tech", "pass_percentage": 58.4 },
+    { "rank": 14, "name": "Institute of Space Technology", "pass_percentage": 57.8 },
+    { "rank": 15, "name": "National University of Technology", "pass_percentage": 57.1 },
+    { "rank": 16, "name": "National Textile University", "pass_percentage": 56.7 },
+    { "rank": 17, "name": "University of Karachi", "pass_percentage": 55.7 },
+    { "rank": 18, "name": "University of Sargodha", "pass_percentage": 54.0 },
+    { "rank": 19, "name": "Institute of Management Sciences", "pass_percentage": 54.0 },
+    { "rank": 20, "name": "International Islamic University", "pass_percentage": 52.7 }
+  ],
+
+  "top_20_private_sector_2026": [
+    { "rank": 1, "name": "Habib University", "pass_percentage": 96.5 },
+    { "rank": 2, "name": "National University of Computer and Emerging Sciences", "pass_percentage": 89.5 },
+    { "rank": 3, "name": "Ghulam Ishaq Khan Institute of Engineering Sciences and Technology", "pass_percentage": 88.1 },
+    { "rank": 4, "name": "City University of Science and Information Technology", "pass_percentage": 64.7 },
+    { "rank": 5, "name": "Superior University Lahore", "pass_percentage": 59.8 },
+    { "rank": 6, "name": "Gift University", "pass_percentage": 55.1 },
+    { "rank": 7, "name": "Usman Institute of Technology University", "pass_percentage": 53.7 },
+    { "rank": 8, "name": "Capital University of Science and Technology", "pass_percentage": 53.6 },
+    { "rank": 9, "name": "University of Central Punjab", "pass_percentage": 53.4 },
+    { "rank": 10, "name": "University of Management and Technology", "pass_percentage": 52.0 },
+    { "rank": 11, "name": "Riphah International University", "pass_percentage": 48.0 },
+    { "rank": 12, "name": "Institute of Business Management", "pass_percentage": 46.9 },
+    { "rank": 13, "name": "Hamdard University", "pass_percentage": 45.3 },
+    { "rank": 14, "name": "Shifa Tameer-e-Millat University", "pass_percentage": 45.0 },
+    { "rank": 15, "name": "Ziauddin University", "pass_percentage": 44.1 },
+    { "rank": 16, "name": "Iqra University", "pass_percentage": 43.1 },
+    { "rank": 17, "name": "DHA Suffa University", "pass_percentage": 42.9 },
+    { "rank": 18, "name": "The University of Lahore", "pass_percentage": 40.2 },
+    { "rank": 19, "name": "International Institute of Science - Arts and Technology", "pass_percentage": 39.1 },
+    { "rank": 20, "name": "Foundation University", "pass_percentage": 38.8 }
+  ],
+
+  "participation_volume_top20": [
+    { "rank": 1, "name": "Virtual University of Pakistan", "candidates": 3135 },
+    { "rank": 2, "name": "COMSATS University", "candidates": 1824 },
+    { "rank": 3, "name": "Islamia University, Bahawalpur", "candidates": 1689 },
+    { "rank": 4, "name": "Iqra University, Karachi", "candidates": 1374 },
+    { "rank": 5, "name": "University of Education, Lahore", "candidates": 902 },
+    { "rank": 6, "name": "University of Gujrat, Gujrat", "candidates": 744 },
+    { "rank": 7, "name": "University of Management & Technology", "candidates": 707 },
+    { "rank": 8, "name": "Lahore Garrison University, Lahore", "candidates": 669 },
+    { "rank": 9, "name": "University of Central Punjab, Lahore", "candidates": 640 },
+    { "rank": 10, "name": "University of the Punjab, Lahore", "candidates": 611 },
+    { "rank": 11, "name": "University of Agriculture, Faisalabad", "candidates": 586 },
+    { "rank": 12, "name": "FAST-NUCES", "candidates": 579 },
+    { "rank": 13, "name": "MNS University of Agriculture, Multan", "candidates": 468 },
+    { "rank": 14, "name": "NED University, Karachi", "candidates": 429 },
+    { "rank": 15, "name": "PMAS Arid Agriculture Uni, Rawalpindi", "candidates": 425 },
+    { "rank": 16, "name": "University of Engineering & Technology", "candidates": 409 },
+    { "rank": 17, "name": "Khawaja Fareed UEIT, Rahim Yar Khan", "candidates": 401 },
+    { "rank": 18, "name": "University of Sindh, Jamshoro", "candidates": 384 },
+    { "rank": 19, "name": "DHA Suffa University", "candidates": 368 },
+    { "rank": 20, "name": "Bahria University, Islamabad", "candidates": 364 }
+  ]
+}
