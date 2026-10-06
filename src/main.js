@@ -3,6 +3,8 @@ import './style.css';
 import * as d3 from 'd3';
 
 import { renderKPICards } from './components/kpi-cards.js';
+import { renderFunnelChart } from './charts/funnel.js';
+import { renderGradeDonut } from './charts/donut.js';
 
 
 function initSidebar() {
@@ -158,8 +160,10 @@ async function init() {
   if (!data) return; // Exit if data loading failed
 
   // 3. Render sections
-  // (We'll add more render calls here as we build each increment)
+  // Section 1: National Overview (Hero)
   renderKPICards(data.database);
+  renderFunnelChart(data.database);
+  renderGradeDonut(data.database);
 
   console.log('Application initialized');
 }
