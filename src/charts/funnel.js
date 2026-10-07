@@ -202,31 +202,33 @@ export function renderFunnelChart(database) {
       .attr('fill', '#0E7C7B')
       .attr('opacity', 0.05);
 
-    // Attrition label container
+    // Attrition label placed cleanly inside the connecting funnel channel (zero collision with right-side badges)
     const dropLabel = dropoffGroup
       .append('g')
       .attr('class', 'funnel-drop-indicator')
-      .attr('transform', `translate(${Math.max(midX + 16, 240)}, ${midY})`);
+      .attr('transform', `translate(16, ${midY})`);
 
-    // Downward arrow icon
     dropLabel
       .append('text')
       .attr('x', 0)
       .attr('y', 4)
-      .attr('fill', '#EF4444')
+      .attr('fill', '#DC2626')
       .attr('font-size', '11px')
       .attr('font-weight', '700')
       .attr('font-family', 'var(--font-mono)')
       .text(`↓ -${formatComma(current.dropCount)} (-${current.dropPct}%)`);
 
+    const shortReason = current.id === 'uploaded' ? 'Never signed up on portal' : current.id === 'signups' ? 'Incomplete registration' : 'Absent on test day (no-shows)';
+
     dropLabel
       .append('text')
-      .attr('x', 145)
+      .attr('x', 148)
       .attr('y', 4)
-      .attr('fill', '#94A3B8')
-      .attr('font-size', '10px')
+      .attr('fill', '#64748B')
+      .attr('font-size', '11px')
       .attr('font-family', 'var(--font-body)')
-      .text(current.id === 'uploaded' ? 'Never signed up' : current.id === 'signups' ? 'Incomplete registration' : 'Absent on test day');
+      .attr('font-weight', '500')
+      .text(`• ${shortReason}`);
   }
 
   // 8. Render Funnel Stage Rows

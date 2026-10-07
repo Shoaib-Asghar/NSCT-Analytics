@@ -6,6 +6,8 @@ import { renderKPICards } from './components/kpi-cards.js';
 import { renderFunnelChart } from './charts/funnel.js';
 import { renderGradeDonut } from './charts/donut.js';
 import { renderHistogram } from './charts/histogram.js';
+import { renderGenderChart } from './charts/gender.js';
+import { renderGeographyChart } from './charts/geography.js';
 
 
 function initSidebar() {
@@ -166,6 +168,12 @@ async function init() {
   renderFunnelChart(data.database);
   renderGradeDonut(data.database);
   renderHistogram(data.database);
+ 
+  // Section 2: Gender Analysis
+  renderGenderChart(data.database);
+ 
+  // Section 3: Urban vs Rural Divide
+  renderGeographyChart(data.database);
 
   console.log('Application initialized');
 }

@@ -1049,6 +1049,142 @@ body {
   opacity: 0.9;
 }
 
+/* --- GENDER CHART & VOLUME SPLIT STYLES --- */
+.gender-volume-wrap {
+  background: #F8FAFC;
+  border: 1px solid var(--color-card-border);
+  border-radius: 8px;
+  padding: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.volume-header-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+  font-size: var(--text-xs);
+}
+
+.volume-title {
+  font-weight: 700;
+  color: var(--color-heading);
+}
+
+.volume-ratio {
+  color: var(--color-muted);
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+
+.volume-split-bar {
+  display: flex;
+  height: 28px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.volume-segment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #FFFFFF;
+  white-space: nowrap;
+  padding: 0 var(--space-2);
+  transition: opacity var(--transition-fast);
+}
+
+.volume-segment--female {
+  background-color: #6366F1;
+}
+
+.volume-segment--male {
+  background-color: #0E7C7B;
+}
+
+.volume-segment:hover {
+  opacity: 0.92;
+}
+
+/* --- CHART LEGEND --- */
+.chart-legend {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--color-text);
+}
+
+.legend-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.legend-label {
+  font-weight: 500;
+}
+
+.gender-kpi-badge {
+  background: #F1F5F9;
+  border: 1px solid var(--color-card-border);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: var(--text-xs);
+}
+
+.gender-bar {
+  transition: opacity var(--transition-fast), filter var(--transition-fast);
+}
+
+/* --- GEOGRAPHY CHART STYLES --- */
+.geography-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-card-border);
+}
+
+.geography-metric-pill {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: #F8FAFC;
+  border: 1px solid var(--color-card-border);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: var(--text-xs);
+}
+
+.geography-metric-pill .pill-label {
+  color: var(--color-muted);
+  font-weight: 500;
+}
+
+.geography-metric-pill .pill-value {
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+
+.geo-bar {
+  transition: opacity var(--transition-fast), filter var(--transition-fast);
+}
+
 
 /* ============================================================================
  * 6. UTILITIES
