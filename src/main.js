@@ -8,6 +8,7 @@ import { renderGradeDonut } from './charts/donut.js';
 import { renderHistogram } from './charts/histogram.js';
 import { renderGenderChart } from './charts/gender.js';
 import { renderGeographyChart } from './charts/geography.js';
+import { renderProvincialChart } from './charts/provinces.js';
 
 
 function initSidebar() {
@@ -174,6 +175,9 @@ async function init() {
  
   // Section 3: Urban vs Rural Divide
   renderGeographyChart(data.database);
+
+  // Section 4: Provincial Breakdown
+  renderProvincialChart(data.database);
 
   console.log('Application initialized');
 }
