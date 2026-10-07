@@ -67,8 +67,8 @@ export function renderHistogram(database) {
 
   // 2. SVG layout & dimensions
   const width = 960;
-  const height = 440;
-  const margin = { top: 45, right: 35, bottom: 55, left: 65 };
+  const height = 460;
+  const margin = { top: 52, right: 35, bottom: 62, left: 65 };
   const innerWidth = width - margin.left - margin.right;
   const innerHeight = height - margin.top - margin.bottom;
 
@@ -98,7 +98,7 @@ export function renderHistogram(database) {
   const maxCount = d3.max(data, d => d.count) || 10323;
   const yScale = d3
     .scaleLinear()
-    .domain([0, maxCount * 1.18]) // Extra headroom for count labels and reference flags
+    .domain([0, maxCount * 1.24]) // Generous headroom to prevent badge & label collisions
     .range([innerHeight, 0])
     .nice();
 
@@ -143,10 +143,10 @@ export function renderHistogram(database) {
 
   xAxisGroup.selectAll('.tick text').attr('dy', '12px');
 
-  // X-Axis title label
+  // X-Axis title label (comfortable vertical spacing)
   g.append('text')
     .attr('x', innerWidth / 2)
-    .attr('y', innerHeight + 42)
+    .attr('y', innerHeight + 46)
     .attr('fill', '#94A3B8')
     .attr('text-anchor', 'middle')
     .attr('font-size', '11px')
@@ -154,7 +154,6 @@ export function renderHistogram(database) {
     .text('Score Bracket (Marks out of 100)');
 
   // 7. Threshold boundary: line separating Fail (<50) from Pass (≥50)
-  // Situated midway between bracket '40-49' (index 4) and '50-59' (index 5)
   const pos40 = xScale('40-49') + xScale.bandwidth();
   const pos50 = xScale('50-59');
   const thresholdX = (pos40 + pos50) / 2;
@@ -182,7 +181,7 @@ export function renderHistogram(database) {
   // Vertical threshold divider line
   g.append('line')
     .attr('x1', thresholdX)
-    .attr('y1', -15)
+    .attr('y1', -16)
     .attr('x2', thresholdX)
     .attr('y2', innerHeight)
     .attr('stroke', '#EF4444')
@@ -197,9 +196,9 @@ export function renderHistogram(database) {
 
   thresholdBadge
     .append('rect')
-    .attr('x', -70)
-    .attr('y', -12)
-    .attr('width', 140)
+    .attr('x', -65)
+    .attr('y', -11)
+    .attr('width', 130)
     .attr('height', 22)
     .attr('rx', 4)
     .attr('fill', '#FEF2F2')
@@ -208,7 +207,7 @@ export function renderHistogram(database) {
 
   thresholdBadge
     .append('text')
-    .attr('y', 3)
+    .attr('y', 4)
     .attr('fill', '#DC2626')
     .attr('font-size', '10px')
     .attr('font-weight', '700')
@@ -216,43 +215,43 @@ export function renderHistogram(database) {
     .text('PASS LINE: 50 MARKS');
 
   // National Average indicator line & tag
-  // 46.28 is within the 40-49 bracket: offset by (46.28 - 40) / 10 = 0.628 of bracket width
+  // Offset to the left to avoid collision with Pass Line badge
   const avgX = xScale('40-49') + xScale.bandwidth() * 0.628;
 
   g.append('line')
     .attr('x1', avgX)
-    .attr('y1', 15)
+    .attr('y1', 20)
     .attr('x2', avgX)
     .attr('y2', innerHeight)
-    .attr('stroke', '#0F172A')
+    .attr('stroke', '#334155')
     .attr('stroke-width', 1.5)
     .attr('stroke-dasharray', '3 3')
-    .attr('opacity', 0.7);
+    .attr('opacity', 0.65);
 
   const avgBadge = g
     .append('g')
-    .attr('transform', `translate(${avgX}, 10)`)
+    .attr('transform', `translate(${avgX - 44}, 18)`)
     .attr('text-anchor', 'middle');
 
   avgBadge
     .append('rect')
-    .attr('x', -46)
-    .attr('y', -11)
-    .attr('width', 92)
+    .attr('x', -38)
+    .attr('y', -9)
+    .attr('width', 76)
     .attr('height', 18)
     .attr('rx', 3)
     .attr('fill', '#0F172A');
 
   avgBadge
     .append('text')
-    .attr('y', 2)
+    .attr('y', 3)
     .attr('fill', '#FFFFFF')
     .attr('font-size', '9px')
     .attr('font-weight', '600')
     .attr('font-family', 'var(--font-mono)')
     .text(`Avg: ${nationalAvg}`);
 
-  // 8. Render Histogram Bars
+  // 8. Render Histogram Bars (Drawn before curve & labels)
   const barsGroup = g.append('g').attr('class', 'histogram-bars');
 
   const barGroups = barsGroup
@@ -262,7 +261,6 @@ export function renderHistogram(database) {
     .attr('class', 'bar-group')
     .style('cursor', 'pointer');
 
-  // The bar rectangle with animated entrance
   barGroups
     .append('rect')
     .attr('class', d => `hist-bar ${d.isPeak ? 'hist-bar--peak' : ''}`)
@@ -282,53 +280,7 @@ export function renderHistogram(database) {
     .attr('y', d => yScale(d.count))
     .attr('height', d => innerHeight - yScale(d.count));
 
-  // Count label above each bar
-  barGroups
-    .append('text')
-    .attr('class', 'bar-label')
-    .attr('x', d => xScale(d.bracket) + xScale.bandwidth() / 2)
-    .attr('y', innerHeight)
-    .attr('text-anchor', 'middle')
-    .attr('fill', '#334155')
-    .attr('font-size', '10px')
-    .attr('font-weight', '600')
-    .attr('font-family', 'var(--font-mono)')
-    .text(d => (d.count > 100 ? formatComma(d.count) : ''))
-    .transition()
-    .duration(800)
-    .delay((_, i) => i * 45)
-    .ease(d3.easeCubicOut)
-    .attr('y', d => yScale(d.count) - 7);
-
-  // Peak badge annotation atop the 40-49 bar
-  const peakData = data.find(d => d.isPeak);
-  if (peakData) {
-    const peakX = xScale('40-49') + xScale.bandwidth() / 2;
-    const peakY = yScale(peakData.count) - 24;
-
-    const peakTag = g.append('g').attr('transform', `translate(${peakX}, ${peakY})`);
-
-    peakTag
-      .append('rect')
-      .attr('x', -34)
-      .attr('y', -8)
-      .attr('width', 68)
-      .attr('height', 16)
-      .attr('rx', 3)
-      .attr('fill', '#EF4444');
-
-    peakTag
-      .append('text')
-      .attr('text-anchor', 'middle')
-      .attr('y', 4)
-      .attr('fill', '#FFFFFF')
-      .attr('font-size', '9px')
-      .attr('font-weight', '700')
-      .attr('font-family', 'var(--font-mono)')
-      .text('PEAK 31.2%');
-  }
-
-  // 9. Bell Curve Overlay Line
+  // 9. Bell Curve Overlay Line (Rendered BEFORE text labels so text sits cleanly on top)
   const lineGenerator = d3
     .line()
     .x(d => xScale(d.bracket) + xScale.bandwidth() / 2)
@@ -345,7 +297,6 @@ export function renderHistogram(database) {
     .attr('opacity', 0.8)
     .attr('d', lineGenerator);
 
-  // Animate bell curve drawing using stroke-dasharray
   const pathLength = curvePath.node().getTotalLength();
   curvePath
     .attr('stroke-dasharray', `${pathLength} ${pathLength}`)
@@ -372,6 +323,93 @@ export function renderHistogram(database) {
     .duration(400)
     .delay((_, i) => 300 + i * 50)
     .attr('opacity', 1);
+
+  // 10. Bar Count Labels (Rendered on top of curve and bars to guarantee zero clipping)
+  const labelsGroup = g.append('g').attr('class', 'histogram-labels');
+
+  labelsGroup
+    .selectAll('.bar-label')
+    .data(data)
+    .join('g')
+    .attr('class', 'bar-label-group')
+    .each(function (d, i) {
+      const el = d3.select(this);
+      const cx = xScale(d.bracket) + xScale.bandwidth() / 2;
+      const barTop = yScale(d.count);
+
+      // Strategy: Tall bars (count >= 1500) display text inside the top of the bar.
+      // Short bars (count < 1500) display text above the bar with a crisp white halo.
+      if (d.count >= 1500) {
+        if (d.isPeak) {
+          // Peak bar: 2-line clean display inside the bar
+          el.append('text')
+            .attr('x', cx)
+            .attr('y', innerHeight)
+            .attr('text-anchor', 'middle')
+            .attr('fill', '#FFFFFF')
+            .attr('font-size', '12px')
+            .attr('font-weight', '800')
+            .attr('font-family', 'var(--font-mono)')
+            .text(formatComma(d.count))
+            .transition()
+            .duration(800)
+            .delay(i * 45)
+            .ease(d3.easeCubicOut)
+            .attr('y', barTop + 18);
+
+          el.append('text')
+            .attr('x', cx)
+            .attr('y', innerHeight)
+            .attr('text-anchor', 'middle')
+            .attr('fill', 'rgba(255, 255, 255, 0.9)')
+            .attr('font-size', '9px')
+            .attr('font-weight', '700')
+            .attr('font-family', 'var(--font-mono)')
+            .text('Peak 31.2%')
+            .transition()
+            .duration(800)
+            .delay(i * 45)
+            .ease(d3.easeCubicOut)
+            .attr('y', barTop + 32);
+        } else {
+          // Other tall bars (20-29, 30-39, 50-59, 60-69)
+          el.append('text')
+            .attr('x', cx)
+            .attr('y', innerHeight)
+            .attr('text-anchor', 'middle')
+            .attr('fill', '#FFFFFF')
+            .attr('font-size', '11px')
+            .attr('font-weight', '700')
+            .attr('font-family', 'var(--font-mono)')
+            .text(formatComma(d.count))
+            .transition()
+            .duration(800)
+            .delay(i * 45)
+            .ease(d3.easeCubicOut)
+            .attr('y', barTop + 18);
+        }
+      } else {
+        // Short bars: positioned safely above the apex with a protective white halo
+        el.append('text')
+          .attr('x', cx)
+          .attr('y', innerHeight)
+          .attr('text-anchor', 'middle')
+          .attr('fill', '#334155')
+          .attr('font-size', '10px')
+          .attr('font-weight', '600')
+          .attr('font-family', 'var(--font-mono)')
+          .style('paint-order', 'stroke fill')
+          .style('stroke', '#FFFFFF')
+          .style('stroke-width', '4px')
+          .style('stroke-linejoin', 'round')
+          .text(d.count > 0 ? formatComma(d.count) : '')
+          .transition()
+          .duration(800)
+          .delay(i * 45)
+          .ease(d3.easeCubicOut)
+          .attr('y', barTop - 10);
+      }
+    });
 
   // 10. Interactive Tooltip & Hover
   barGroups
