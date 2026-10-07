@@ -5,6 +5,7 @@ import * as d3 from 'd3';
 import { renderKPICards } from './components/kpi-cards.js';
 import { renderFunnelChart } from './charts/funnel.js';
 import { renderGradeDonut } from './charts/donut.js';
+import { renderHistogram } from './charts/histogram.js';
 
 
 function initSidebar() {
@@ -164,6 +165,7 @@ async function init() {
   renderKPICards(data.database);
   renderFunnelChart(data.database);
   renderGradeDonut(data.database);
+  renderHistogram(data.database);
 
   console.log('Application initialized');
 }
