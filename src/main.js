@@ -11,6 +11,8 @@ import { renderGeographyChart } from './charts/geography.js';
 import { renderProvincialChart } from './charts/provinces.js';
 import { renderUniversityRankingChart } from './charts/universities-ranking.js';
 import { renderUniversityTable } from './components/university-table.js';
+import { renderSubjectProficiencyChart } from './charts/subjects.js';
+import { renderCognitiveChart } from './charts/cognitive.js';
 
 
 function initSidebar() {
@@ -184,6 +186,10 @@ async function init() {
   // Section 5: University Rankings & Explorer
   renderUniversityRankingChart(data.universities, data.database);
   renderUniversityTable(data.universities);
+
+  // Section 6: Subject Proficiency & Cognitive Tiers
+  renderSubjectProficiencyChart(data.database);
+  renderCognitiveChart(data.database);
 
   console.log('Application initialized');
 }
