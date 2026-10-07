@@ -5,47 +5,69 @@
  * 
  */
 
-export function createTooltip(container) {
-  let tooltip = container.querySelector('.chart-tooltip');
-  if (!tooltip) {
-    tooltip = document.createElement('div');
-    tooltip.className = 'chart-tooltip';
-    container.appendChild(tooltip);
+let globalTooltip = null;
+
+function getTooltipElement() {
+  if (!globalTooltip || !document.body.contains(globalTooltip)) {
+    document.querySelectorAll('.chart-tooltip').forEach(el => el.remove());
+
+    globalTooltip = document.createElement('div');
+    globalTooltip.className = 'chart-tooltip';
+    document.body.appendChild(globalTooltip);
   }
+  return globalTooltip;
+}
+
+export function createTooltip(container) {
+  const tooltip = getTooltipElement();
 
   return {
     /**
      * Show and position the tooltip near the cursor.
-     * @param {string} html - HTML markup for tooltip contents.
+     * @param {string|null} html - HTML markup for tooltip contents. If null/undefined, existing HTML is preserved (used on mousemove).
      * @param {MouseEvent} event - Native mouse event for cursor positioning.
      */
     show(html, event) {
-      tooltip.innerHTML = html;
+      if (!event) return;
+
+      // Only update markup when new content is provided (preserves content during mousemove)
+      if (html !== null && html !== undefined && html !== '') {
+        tooltip.innerHTML = html;
+      }
+
       tooltip.classList.add('chart-tooltip--visible');
 
-      const rect = container.getBoundingClientRect();
-      const x = event.clientX - rect.left;
-      const y = event.clientY - rect.top;
+      // Measure tooltip dimensions for collision clamping
+      const tipWidth = tooltip.offsetWidth || 240;
+      const tipHeight = tooltip.offsetHeight || 100;
+      const pad = 12;
 
-      // Measure tooltip dimensions to keep it within the container boundary
-      const tooltipRect = tooltip.getBoundingClientRect();
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
 
-      // If cursor is near right edge, flip tooltip to the left of cursor
-      let posX = x + 16;
-      if (posX + tooltipRect.width > rect.width - 12) {
-        posX = x - tooltipRect.width - 16;
+      // Horizontal positioning: default to right of cursor (+16px)
+      let posX = event.clientX + 16;
+      // If overflowing right edge of viewport, flip to left of cursor
+      if (posX + tipWidth > viewportWidth - pad) {
+        posX = event.clientX - tipWidth - 16;
       }
-      if (posX < 8) posX = 8;
-
-      // Keep vertical position centered around cursor, bounded within container
-      let posY = y - tooltipRect.height / 2;
-      if (posY < 8) posY = 8;
-      if (posY + tooltipRect.height > rect.height - 8) {
-        posY = rect.height - tooltipRect.height - 8;
+      // Keep within left viewport edge
+      if (posX < pad) {
+        posX = pad;
       }
 
-      tooltip.style.left = `${posX}px`;
-      tooltip.style.top = `${posY}px`;
+      // Vertical positioning: center vertically around cursor
+      let posY = event.clientY - tipHeight / 2;
+      // If overflowing bottom edge of viewport, clamp to bottom
+      if (posY + tipHeight > viewportHeight - pad) {
+        posY = viewportHeight - tipHeight - pad;
+      }
+      // If overflowing top edge of viewport, clamp to top
+      if (posY < pad) {
+        posY = pad;
+      }
+
+      tooltip.style.transform = `translate3d(${Math.round(posX)}px, ${Math.round(posY)}px, 0)`;
     },
 
     /**
