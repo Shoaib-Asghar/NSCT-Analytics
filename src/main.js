@@ -9,6 +9,8 @@ import { renderHistogram } from './charts/histogram.js';
 import { renderGenderChart } from './charts/gender.js';
 import { renderGeographyChart } from './charts/geography.js';
 import { renderProvincialChart } from './charts/provinces.js';
+import { renderUniversityRankingChart } from './charts/universities-ranking.js';
+import { renderUniversityTable } from './components/university-table.js';
 
 
 function initSidebar() {
@@ -178,6 +180,10 @@ async function init() {
 
   // Section 4: Provincial Breakdown
   renderProvincialChart(data.database);
+
+  // Section 5: University Rankings & Explorer
+  renderUniversityRankingChart(data.universities, data.database);
+  renderUniversityTable(data.universities);
 
   console.log('Application initialized');
 }
