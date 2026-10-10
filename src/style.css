@@ -1031,7 +1031,90 @@ body {
   }
 }
 
+/* --- TOP STUDENTS TABLE STYLES --- */
+.student-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.student-name {
+  font-weight: 600;
+  color: var(--color-heading);
+  font-size: 13.5px;
+  line-height: 1.35;
+}
+
+.student-percentile {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--color-muted);
+}
+
+.city-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: #F1F5F9;
+  border: 1px solid #E2E8F0;
+  font-size: 11px;
+  font-weight: 500;
+  color: #475569;
+}
+
+.student-score-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+}
+
+.student-score-val {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 13.5px;
+  color: var(--color-heading);
+  line-height: 1.2;
+}
+
+.mini-bar-fill--elite {
+  background: linear-gradient(90deg, #F59E0B, #10B981);
+}
+
+.score-pill {
+  padding: 3px 9px;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  border: 1px solid var(--color-card-border);
+  background: #F8FAFC;
+  color: var(--color-muted);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.score-pill:hover {
+  background: var(--color-primary-bg);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.score-pill--active {
+  background: var(--color-heading);
+  color: #FFFFFF;
+  border-color: var(--color-heading);
+}
+
+.col-uni {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
 /* --- FOOTER --- */
+
 
 .footer {
   margin-top: var(--space-16);

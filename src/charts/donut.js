@@ -5,33 +5,6 @@
  *
  * Visualizes the 5-tier HEC Grading Scheme across 33,038 test takers:
  * Grade F (61.4%) | Grade D (21.3%) | Grade C (13.2%) | Grade B (3.6%) | Grade A (0.4%)
- *
- * D3.JS CONCEPTS TAUGHT IN THIS MODULE:
- * -------------------------------------
- * 1. THE PIE GENERATOR (d3.pie):
- *    - d3.pie() is NOT a drawing function; it is a DATA TRANSFORMER.
- *    - It takes an array of data objects, calculates angles proportional to each
- *      item's value, and outputs an array of arc descriptor objects with
- *      `startAngle` and `endAngle` (in radians: 0 to 2π).
- *    - .sort(null) preserves our exact logical grade sequence (F -> D -> C -> B -> A)
- *      rather than auto-sorting by descending size.
- *    - .padAngle(0.02) injects a crisp angular gap between slices.
- *
- * 2. THE ARC GENERATOR (d3.arc):
- *    - d3.arc() is a PATH GENERATOR.
- *    - It consumes the {startAngle, endAngle} produced by d3.pie() and outputs
- *      the SVG path string ("M... A... Z") that draws the slice.
- *    - .innerRadius() > 0 hollows out the circle, turning a pie into a modern DONUT chart.
- *    - .cornerRadius() rounds the geometric corners of each slice.
- *
- * 3. D3 TWEENING & ANIMATIONS (.attrTween):
- *    - To animate slices growing smoothly on load, we interpolate radians from
- *      0 to their final angle using d3.interpolate() inside a custom tween.
- *
- * 4. DYNAMIC CENTER METRICS & BIDIRECTIONAL LINKING:
- *    - Moving the mouse over a slice (or a legend row) updates the SVG center
- *      readout in real-time and scales the hovered slice.
- * ============================================================================
  */
 
 import * as d3 from 'd3';

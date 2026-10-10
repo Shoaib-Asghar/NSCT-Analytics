@@ -13,6 +13,7 @@ import { renderUniversityRankingChart } from './charts/universities-ranking.js';
 import { renderUniversityTable } from './components/university-table.js';
 import { renderSubjectProficiencyChart } from './charts/subjects.js';
 import { renderCognitiveChart } from './charts/cognitive.js';
+import { renderTopStudentsTable } from './components/top-students.js';
 
 
 function initSidebar() {
@@ -190,6 +191,9 @@ async function init() {
   // Section 6: Subject Proficiency & Cognitive Tiers
   renderSubjectProficiencyChart(data.database);
   renderCognitiveChart(data.database);
+
+  // Section 7: Top Students Leaderboard
+  renderTopStudentsTable(data.students, data.universities);
 
   console.log('Application initialized');
 }
